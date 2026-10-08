@@ -1,3 +1,5 @@
+**Summary materials:** [One-page memo](fraud-memo.pdf) · [Dissertation deck](dissertation-deck.pdf)
+
 # Credit Card Fraud Detection: ML Classification, Calibration & Cost-Aware Risk Estimation
 
 MSc Digital Finance and AI dissertation project — Loughborough University.
