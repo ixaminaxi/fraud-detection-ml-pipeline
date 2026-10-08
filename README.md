@@ -17,13 +17,14 @@ estimate.
 ## Key Findings
 
 - **No single model wins outright.** Logistic Regression, Random Forest, and XGBoost
-  each lead on different metrics (precision, recall, F1, AUC) — there is no
-  statistically clean winner, confirmed via stratified 5-fold cross-validation.
+  each lead on different metrics (precision, recall, F1, AUC). Paired t-tests on
+  stratified 5-fold CV AUC found no significant difference (p = 0.29 to 0.92).
 - **Undersampling distorts predicted probabilities.** Applying the Dal Pozzolo et al.
-  (2015) correction reduces Brier score by ~95–97% across all three models.
-- **Expected loss is concentration-prone.** A single high-value false positive
-  accounts for over half of the total expected loss (~£34,200) across the test set —
-  a key limitation of summed cost proxies.
+  (2015) correction reduces Brier score by 95.0% to 96.8% across all three models.
+- **Expected loss is concentration-prone.** Total expected loss on the test set is
+  34,217.60 monetary units (the dataset's currency is unconfirmed). 72.7% comes from
+  false alarms on genuine transactions, and one genuine transaction (25,691.16) makes
+  up 51.5% of the total.
 
 ## Dataset
 
@@ -37,7 +38,7 @@ Kaggle link above and place it in the project root before running the notebook.
 
 ## Tech Stack
 
-Python · pandas · scikit-learn · XGBoost · matplotlib
+Python · pandas · scikit-learn · XGBoost · SHAP · LIME · SciPy · matplotlib
 
 ## How to Run
 
@@ -45,6 +46,6 @@ Python · pandas · scikit-learn · XGBoost · matplotlib
 2. Download `creditcard.csv` from Kaggle (link above) into the project root
 3. Install dependencies:
 ```
-pip install pandas scikit-learn xgboost matplotlib numpy
+pip install pandas scikit-learn xgboost matplotlib numpy shap lime scipy
 ```
 4. Open `fraud_pipeline.ipynb` in Jupyter and run all cells top to bottom
